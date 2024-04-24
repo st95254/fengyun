@@ -1,0 +1,100 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.product-image {
+    max-width: 500px;
+    display: block;
+    margin-bottom: 50px auto;
+    border-radius: 3px;
+}
+.container{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin: 130px auto 50px auto;
+}
+.imformation{
+  width: 300px;
+  border-radius: 10px;
+}
+#frame{
+  margin: 15px 20px;
+}
+
+.name p{
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.description{
+  font-size: 14px;
+  line-height: 24px;
+}
+.detail{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.money{
+  font-size: 25px;
+}
+.counter {
+    display: flex;
+    align-items: center;
+}
+.counter button {
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    outline: none;
+    user-select: none; /* Prevents text selection */
+}
+.counter button:hover {
+    background-color: #e8e8e8;
+    border-color: #bbb;
+}
+.counter button:active {
+    background-color: #fff;
+    border-color: #aaa;
+}
+.counter span {
+    font-size: 25px;
+    margin: 0 15px;
+}
+.counter button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.add_btn{
+  width: 260px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: #c7a743;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+.add_btn:hover{
+  background-color: #b5983c;
+  color: white;
+  transition-duration: 0.3s;
+}

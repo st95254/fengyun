@@ -1,0 +1,82 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    margin-top: 100px;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  margin: 30px auto 20px auto;
+}
+::placeholder {
+  font-family: serif;
+}
+.input{
+  width: 320px;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+.input input{
+  width:310px ;
+  height:25px;
+  margin: 10px 0px 10px 0px;
+  border: 1px #e6e6e6 solid;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.login_btn:disabled {
+  background-color: #efefef;
+  color: #aaaaaa;
+}
+.login_btn:disabled:hover {
+  background-color: #efefef;
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+.login_btn{
+  background-color: #c7a743;
+  color: white;
+  width:320px;
+  height:40px;
+  border-radius:10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.login_btn:hover{
+  background-color: #b5983c;
+  color: white; 
+  transition-duration: 0.3s;
+}
+.signup{
+  width: 320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  align-items: center;
+}
+.signup p{
+  font-size: 14px;
+}
+.signup_btn{
+  width:100px;
+  height:35px;
+  border-radius:10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}  
+.signup_btn:hover{
+  background-color: #c7a743;
+  color: white; 
+  transition-duration: 0.3s;
+}

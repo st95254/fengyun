@@ -1,0 +1,87 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    width: 75%;
+    margin: 100px auto 50px auto;
+}
+.item_header{
+    display: flex;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 5px 0px;
+}
+.item_header div {
+    color: #000;
+    line-height: 30px;
+}
+.item_body{
+    display: flex;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 5px 0px;
+    margin-top: 15px;
+    align-items: center;    
+}
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+}
+.item img {
+    margin: auto;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+.name{
+    text-align: left;
+    width: 36%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.price, .count, .sum{
+    text-align: center;
+    width: 18%;
+}
+
+@media screen and (max-width: 1100px) {
+    .item{
+        display: none;
+    }
+    .name, .price, .count, .sum{
+        width: 25%;
+    }
+}
+
+.money {
+    width: 20%;
+    float: right;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    font-size: 17px;
+}
+.line-item {
+    display: flex;
+    justify-content: space-between; /* Align children on opposite ends */
+    margin-bottom: 5px; /* Optional: Adds space between line items */
+}
+.moneyTitle {
+    text-align: left;
+    display: block;
+}
+.amount {
+    text-align: right;
+    display: block;
+}
+.total .moneyTitle, .total .amount {
+    font-weight: bold;
+    font-size: 19px;
+}

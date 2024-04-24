@@ -1,0 +1,33 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    width: 75%;
+    margin: 100px auto 30px auto;
+}
+.content{
+    margin-bottom: 30px;
+}
+#btn {
+    display: flex;
+    justify-content: center;  
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    background-color: #c7a743;
+    color: white; 
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+#btn:hover {
+  background-color: #b5983c;
+  color: white;
+  transition-duration: 0.3s;
+}

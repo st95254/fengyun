@@ -1,0 +1,12 @@
+body{
+  margin: 0;
+  font-family: serif;
+}
+.title{
+  font-size: 18px;
+  font-weight: bold;
+}
+.container{
+    width: 70%;
+    margin: 100px auto 50px auto;
+}

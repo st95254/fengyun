@@ -1,0 +1,37 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    width: 75%;
+    margin: 100px auto 50px auto;
+}
+.item_header, .item_body{
+    display: flex;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    margin-top: 15px;
+    align-items: center;    
+}
+.item_header div, .item_body div, .item_body button {
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+}
+#btn {
+    background-color: #c7a743;
+    color: white; 
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+#btn:hover {
+  background-color: #b5983c;
+  color: white;
+  transition-duration: 0.3s;
+}

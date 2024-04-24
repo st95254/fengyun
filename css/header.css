@@ -1,0 +1,170 @@
+body{
+  margin: 0;
+  font-family: serif;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    height: 75px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+}
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+  float: left;
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+  padding-top: 3px;
+}
+.logo #icon{
+  width: 35px;
+}
+.logo a{
+  letter-spacing:4px;
+  font-size: 25px;
+  margin-left: 12px;
+  color: #c7a743;
+  text-decoration: none;
+}
+#left-menu {
+  list-style: none;
+  padding: 0;
+  margin:25px 0px 0px 10px;
+  display: inline-block;
+  font-size: 15px;
+}
+#left-menu li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+}
+#left-menu a {
+  color: #737266;
+  margin: 0px 14px;
+  text-decoration: none;
+}
+#left-menu a:hover {
+  color: #c7a743;
+}
+
+/*登入前*/
+.header-right-before > #after-login{
+    display: none;
+}
+.header-right-before > #before-login > #right-menu{
+  margin-top: 25px;
+  list-style: none;
+}
+.header-right-before > #before-login > #right-menu li{
+  display: inline;
+}
+.header-right-before > #before-login > #right-menu li a{
+  text-decoration: none;
+  color: #737266;
+  font-size: 15px;
+}
+.header-right-before > #before-login > #right-menu li:hover > a {
+  color: #c7a743;
+}
+
+/*登入後*/
+.header-right-after > #before-login{
+    display: none;
+}
+.header-right-after > #after-login {
+  display: flex;
+  align-items: center;
+}
+.header-right-after > #after-login > #right-menu {
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header-right-after > #after-login > #right-menu li {
+  position: relative;
+  white-space: nowrap;
+
+}
+.header-right-after > #after-login > #right-menu a {
+  color: #808080;
+  padding: 0 30px;
+  text-decoration: none;
+  display: block;
+}
+.header-right-after > #after-login > #right-menu li:hover > a {
+  color:#c7a743;
+}
+.header-right-after > #after-login > #right-menu ul {
+  position: absolute;
+  z-index: 99;
+  left: -115%;
+  top: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, .4);
+  visibility: hidden;
+  opacity: 0;
+  width: 100px; 
+  background-color: white;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+}
+.header-right-after > #after-login > #right-menu ul li {
+  list-style-type: none;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: #f2f2f2 1px solid;
+  padding: 0;
+}
+.header-right-after > #after-login > #right-menu ul li a {
+  font-size: 13px;
+  padding: 0 10px; /* 根据需要调整左右内边距，以匹配下拉菜单的宽度 */
+  display: block; /* 确保链接占据整个列表项宽度 */
+}
+.header-right-after > #after-login > #right-menu li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip {
+    position: absolute;
+    top: 35px; /* 使其出現在圖示下方 */
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: visibility 0s, opacity 0.2s ease-in-out;
+    z-index: 1;
+    font-size: 12px;
+    white-space: nowrap; /* 防止文字換行 */
+}
+#right-menu li {
+  position: relative; /* 確保是相對定位，讓工具提示可以根據它來定位 */
+}
+#right-menu li:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+#cart{
+  filter: invert(52%) sepia(10%) saturate(12%) hue-rotate(1deg) brightness(95%) contrast(93%);
+  width: 30px;
+  height: 30px;
+}
+#user {
+  filter: invert(52%) sepia(10%) saturate(12%) hue-rotate(1deg) brightness(95%) contrast(93%);
+  width: 30px;
+  height: 30px;
+}

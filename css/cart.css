@@ -1,0 +1,202 @@
+body{
+    font-family: serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    width: 75%;
+    margin: 100px auto 0px auto;
+}
+.item_header{
+    display: flex;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 5px 0px;
+}
+.item_header div {
+    color: #000;
+    line-height: 30px;
+}
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+}
+.item img {
+    margin: auto;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 3px;
+}
+.name{
+    text-align: left;
+    width: 34%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.price, .count, .sum, .operate{
+    text-align: center;
+    width: 14%;
+}
+.item_body{
+    padding: 8px 0;
+    margin-top: 15px;
+    align-items: center;    
+}
+@media screen and (max-width: 1100px) {
+    .item, .name, .count, .operate{
+        width: 20%;
+    }
+    .price, .sum{
+        width: 10%;
+    }
+}
+.count button {
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    outline: none;
+    user-select: none; /* Prevents text selection */
+}
+.count button:hover {
+    background-color: #e8e8e8;
+    border-color: #bbb;
+}
+.count button:active {
+    background-color: #fff;
+    border-color: #aaa;
+}
+.count button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+.operate button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+.operate button:hover {
+    background-color: #e8e8e8;
+    border-color: #bbb;
+}
+.operate button:active {
+    background-color: #fff;
+    border-color: #aaa;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+/*    align-items: flex-end;*/
+    margin-bottom: 10px;
+}
+.order_sec {
+    width: 70%;
+}
+.money {
+    width: 30%;
+    font-size: 17px;
+}
+.title{
+  display: flex;
+  justify-content: left;
+  font-size: 24px;
+  margin-top: 30px;
+}
+.lable{
+  justify-content: left;
+  font-size: 17px;
+}
+#order_form{
+  justify-content: left;
+}
+#order_form input{
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+#order_form .input-group input {
+  width: 90%;
+  height: 25px;
+  border: 1px #e6e6e6 solid;
+}
+#order_form label:after {
+  content: '*';
+  color: red;
+  font-size: 14px;
+}
+
+.line-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.moneyTitle {
+    text-align: left;
+    flex: 1;
+}
+.amount {
+    text-align: right;
+    flex: 1;
+}
+
+.total .text {
+    font-weight: bold;
+}
+
+.total .amount {
+    color: #EA0000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.submit-button {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#submitBtn {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #c7a743;
+    color: white; 
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+#submitBtn:hover {
+  background-color: #b5983c;
+  color: white;
+  transition-duration: 0.3s;
+}
+#submitBtn:disabled {
+  background-color: #efefef;
+  color: #aaaaaa;
+}
+#submitBtn:disabled:hover {
+  background-color: #efefef;
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+.note{
+    font-size: 17px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
