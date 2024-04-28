@@ -11,9 +11,6 @@ body{
 .footer-left{
   display: flex;
   flex-wrap: wrap;
-/*  justify-content: space-between;
-  margin: 0 auto;
-  margin-bottom: 120px;*/
 }
 .contact, .service {
   margin-right: 100px;
@@ -54,18 +51,18 @@ body{
 }
 @media (max-width: 768px) {
   .footer {
-    justify-content: center; /* 小螢幕上居中 */
+    justify-content: center;
   }
   
   .footer-left, .footer-right {
-    width: 100%; /* 小螢幕上充滿整個螢幕寬度 */
-    justify-content: center; /* 內容居中 */
-    margin-bottom: 100px; /* 增加間隔 */
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 100px;
   }
   
   .contact, .service {
-    margin-right: 0; /* 小螢幕上移除右邊距 */
-    margin-bottom: 20px; /* 增加底部間隔 */
+    margin-right: 0;
+    margin-bottom: 20px;
   }
   
  /* .logo-footer {

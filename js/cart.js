@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('totalInput').value = total + shippingFeeValue;
         document.getElementById('shippingFeeInput').value = shippingFee;
         document.getElementById('orderStatusInput').value = "處理中";
-        document.getElementById('itemName').value = itemNames.join('#'); // 更新隐藏字段
     };
 
     const renderItems = () => {
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 發送 AJAX 請求
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'update-cart.php', true);
+            xhr.open('POST', '../controller/UpdateCart.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.onload = function () {
                 if (this.status == 200) {

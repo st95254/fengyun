@@ -1,45 +1,20 @@
-<?php 
+<?php
 session_start();
+require_once "../controller/CartController.php";
 
-require_once "config.php";
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$user_id = $_SESSION['id'] ?? null; // 使用 null 合併運算符來防止未定義索引錯誤
-if (!$user_id) {
+if (!isset($_SESSION['id'])) {
     echo "<script>alert('使用者尚未登入'); window.location.href = 'login.php';</script>";
     exit;
 }
-$cart_items = array();
 
-if ($user_id) {
-    $sql = "SELECT ci.id AS cart_item_id, ci.product_id, ci.quantity, p.price, p.name, p.image 
-            FROM cart_item ci 
-            JOIN product p ON ci.product_id = p.id 
-            WHERE ci.cart_id = (SELECT id FROM cart WHERE user_id = '$user_id')";
-    $result = mysqli_query($conn, $sql);
+$userId = $_SESSION['id'];
+$controller = new CartController();
+$cart_items = $controller->getCartItems($userId);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $cart_items[] = $row;
-    }
-
-    // After fetching the cart items, get the cart ID as well
-    $cart_id_query = "SELECT id FROM cart WHERE user_id = '$user_id'";
-    $cart_id_result = mysqli_query($conn, $cart_id_query);
-    $cart_id_row = mysqli_fetch_assoc($cart_id_result);
-    $cart_id = $cart_id_row['id'];
-}
-
-// 如果購物車是空的，則彈出警告並重定向到首頁
 if (empty($cart_items)) {
     echo "<script>alert('您的購物車沒有商品'); window.location.href='home.php';</script>";
-    exit; // 結束腳本執行
+    exit;
 }
-
-mysqli_close($conn);
 
 // 將購物車項目轉換為 JSON
 $cart_items_json = json_encode($cart_items);
@@ -49,8 +24,8 @@ $cart_items_json = json_encode($cart_items);
 <html lang="en">
 <head>
     <?php include 'head.php'; ?>
-    <link rel="stylesheet" href="../css/cart.css">
-    <script src="../js/cart.js"></script>
+    <link rel="stylesheet" href="../../css/cart.css">
+    <script src="../../js/cart.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -90,7 +65,8 @@ $cart_items_json = json_encode($cart_items);
 
         <div class="content-wrapper">
             <div class="order_sec">
-                <form id="order_form" action="checkout.php" method="post">
+                <form id="order_form" action="../controller/CheckoutController.php" method="post">
+
                     <div class="input-group">
                         <label for="name">收件人 </label>
                         <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required>

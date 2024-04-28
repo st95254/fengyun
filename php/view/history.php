@@ -1,10 +1,6 @@
 <?php
 session_start();
-require_once "config.php";
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require_once "../controller/HistoryController.php";
 
 $user_id = $_SESSION['id'] ?? null;
 if (!$user_id) {
@@ -12,15 +8,15 @@ if (!$user_id) {
     exit;
 }
 
-mysqli_close($conn);
+// 連接控制器
+$controller = new HistoryController();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include 'head.php'; ?>
-    <link rel="stylesheet" href="../css/history.css">
-    <script src="../js/history.js"></script>
+    <link rel="stylesheet" href="../../css/history.css">
+    <script src="../../js/history.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

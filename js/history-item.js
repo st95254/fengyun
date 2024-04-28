@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const historyId = urlParams.get('history_id');
 
         // Make a fetch request to the server
-        fetch(`../php/get-history-item.php?history_id=${historyId}`)
+        fetch(`../controller/GetHistoryItem.php?history_id=${historyId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.error) {

@@ -3,8 +3,7 @@
 <html lang="en">
 <head>
 	<?php include 'head.php'; ?>
-	<script src="../js/home.js"></script>
-	<link rel="stylesheet" href="../css/home.css">
+	<link rel="stylesheet" href="../../css/home.css">
 </head>
 <body>
 	<?php include 'header.php'; ?>
@@ -23,11 +22,11 @@
 
 	<div class="showcase">
   		<a href="gold.php">
-    		<img src="../element/home_gold.jpeg" alt="金箔">
+    		<img src="../../element/home_gold.jpeg" alt="金箔">
     		<div class="description">金箔</div>
   		</a>
   		<a href="tea.php">
-    		<img src="../element/home_tea.jpg" alt="茶葉">
+    		<img src="../../element/home_tea.jpg" alt="茶葉">
     		<div class="description">茶葉</div>
   		</a>
 	</div>

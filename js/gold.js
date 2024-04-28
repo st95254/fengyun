@@ -4,8 +4,8 @@ function GetGoldPrice() {
         alert('請輸入數量在 100 到 10000 之間');
         return;
     }
-    // 將RequestURL設置為你的proxy.php路徑，並附上任何必要的查詢參數
-    var RequestURL = "../php/proxy.php?Curr=NT&OrderQty=" + amount;
+    // 將RequestURL設置為proxy.php路徑(目前位置為php/view/)，並附上任何必要的查詢參數
+    var RequestURL = "../api/proxy.php?Curr=NT&OrderQty=" + amount;
     
     console.log($('meta[name="csrf-token"]').attr('content'));
     $.ajax({
@@ -19,17 +19,12 @@ function GetGoldPrice() {
             console.log(result);
             for(var i = 0; i < result.length; i++) {
                 // 使用result[i].price來獲取價格，因為現在result[i]是一個對象
-                var totalPrice = result[i].price.replace("NT$","");
-                totalPrice = totalPrice.replace(",","");
-                var totalPriceNumber = Number(totalPrice) * 1.1; // 更準確的將字符串轉換為數字的方法
-                $("#total" + i).text("NT$ " + totalPriceNumber.toFixed(0));
-
                 if(result.length === productIds.length) {
                     for(var i = 0; i < result.length; i++) {
                         var totalPrice = result[i].price.replace("NT$","");
                         totalPrice = totalPrice.replace(",","");
-                        var totalPriceNumber = Number(totalPrice);
-                        $("#total" + i).text("NT$ " + totalPriceNumber.toFixed(0));
+                        var totalPriceNumber = Number(totalPrice) * 1.1;
+                        $("#total" + i).text("NT$" + totalPriceNumber.toFixed(0));
 
                         if (amount == 100) { // 僅當 amount 等於 100 時更新價格
                             // 使用從PHP獲取的產品ID
@@ -53,7 +48,7 @@ function GetGoldPrice() {
 // 發送AJAX請求更新價格
 function updateProductPrice(productId, newPrice) {
     $.ajax({
-        url: "update_price.php", // PHP檔案路徑
+        url: "../controller/UpdatePrice.php", // PHP檔案路徑
         type: "post",
         data: {
             id: productId,

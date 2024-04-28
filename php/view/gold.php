@@ -1,35 +1,19 @@
-<?php 
-session_start(); 
-require_once "config.php";
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-// 檢查連接
-if ($conn->connect_error) {
-  die("連接失敗: " . $conn->connect_error);
-}
+<?php
+session_start();
+require_once "../controller/ProductController.php";
+$controller = new ProductController();
 
-// 獲取所有金箔產品的ID
-$productIds = [];
-$sql = "SELECT id FROM `product` WHERE `product_type` = 'gold' ORDER BY `id`";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        array_push($productIds, $row['id']);
-    }
-}
-
-// 獲取所有金箔產品
-$sql_product = "SELECT * FROM `product` WHERE `product_type` = 'gold'";
-$result_product = $conn->query($sql_product);
+$productIds = $controller->getGoldProductIds();
+$goldProducts = $controller->getGoldProducts();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include 'head.php'; ?>
-	<link rel="stylesheet" href="../css/gold.css">
-	<link rel="icon" href="elements/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="../../css/gold.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/gold.js"></script>
+    <script src="../../js/gold.js"></script>
 </head>
 <body>
     <script>
@@ -125,34 +109,21 @@ $result_product = $conn->query($sql_product);
 
     <!-- Start Product Section -->
 	<section id="product_sec">
-		<div class="title">
-            <h1>商品選購</h1>
-        </div>
-		<div class="product_lis">
+        <div class="title"><h1>商品選購</h1></div>
+        <div class="product_lis">
             <?php
-            if ($result_product->num_rows > 0) {
-                // 輸出每行數據
-                while($row = $result_product->fetch_assoc()) {
-                    echo '<div class="card">';
-                    echo '<div class="img">';
-                    echo '<img src="' . $row["image"] . '">';
-                    echo '</div>';
-                    echo '<div class="info">';
-                    echo '<div class="tt">';
-                    echo '<a href="product.php?id=' . $row["id"] . '">' . $row["name"] . '</a>';
-                    echo '</div>';
-                    echo '<div class="price">';
-                    echo '$' . $row["price"] . '元';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
+            if ($goldProducts->num_rows > 0) {
+                while($row = $goldProducts->fetch_assoc()) {
+                    echo '<div class="card"><div class="img"><img src="' . $row["image"] . '"></div>';
+                    echo '<div class="info"><div class="tt"><a href="product.php?id=' . $row["id"] . '">' . $row["name"] . '</a></div>';
+                    echo '<div class="price">$' . $row["price"] . '元</div></div></div>';
                 }
             } else {
                 echo "0 個結果";
             }
             ?>
         </div>
-	</section>
+    </section>
 	<!-- End Product Section -->
 
 	<!-- Ｓtart Portfolio Section -->
@@ -174,53 +145,53 @@ $result_product = $conn->query($sql_product);
             <div class="all-portfolios">
                 <!-- Melting -->
                 <div class="single-portfolio melting">
-                    <img class="img-responsive fixsize" src="../element/gold/metling1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/metling1.jpg" alt="">
                 </div>
             	<!-- Extending -->
                 <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="../element/gold/rolling1a.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/rolling1a.jpg" alt="">
                 </div>
                 <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="../element/gold/rolling1b.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/rolling1b.jpg" alt="">
                 </div>
                 <div class="single-portfolio extending">
-                    <img class="img-responsive fixsize" src="../element/gold/rolling1c.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/rolling1c.jpg" alt="">
                 </div>
             	<!-- beating -->
                 <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="../element/gold/beating1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/beating1.jpg" alt="">
                 </div>
                 <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="../element/gold/beating2.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/beating2.jpg" alt="">
                 </div>
                 <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="../element/gold/beating3.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/beating3.jpg" alt="">
                 </div>
                 <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="../element/gold/beating4.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/beating4.jpg" alt="">
                 </div>
                 <div class="single-portfolio beating">
-                    <img class="img-responsive fixsize" src="../element/gold/beating5.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/beating5.jpg" alt="">
                 </div>
             	<!-- interleaving -->
                 <div class="single-portfolio interleaving">
-                    <img class="img-responsive fixsize" src="../element/gold/interleaving1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/interleaving1.jpg" alt="">
                 </div>
                 <div class="single-portfolio interleaving">
-                    <img class="img-responsive fixsize" src="../element/gold/interleaving2.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/interleaving2.jpg" alt="">
                 </div>
                 <!-- process -->
                 <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="../element/gold/examining1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/examining1.jpg" alt="">
                 </div>
                 <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="../element/gold/packaging1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/packaging1.jpg" alt="">
                 </div>
                 <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="../element/gold/cutting1.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/cutting1.jpg" alt="">
                 </div>
                 <div class="single-portfolio process">
-                    <img class="img-responsive fixsize" src="../element/gold/cutting2.jpg" alt="">
+                    <img class="img-responsive fixsize" src="../../element/gold/cutting2.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -230,8 +201,5 @@ $result_product = $conn->query($sql_product);
 	<br><br><br>
 	
 	<?php include 'footer.php'; ?>
-    <?php
-        $conn->close(); // 關閉資料庫連接
-    ?>
 </body>
 </html>

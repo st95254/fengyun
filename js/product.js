@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const decreaseButton = document.getElementById('decrease');
     const increaseButton = document.getElementById('increase');
     const numberSpan = document.getElementById('number');
-    const quantityInput = document.getElementById('quantity'); // 確保這個元素在您的HTML中
+    const quantityInput = document.getElementById('quantity');
     let number = 1;
 
     function updateQuantityDisplay() {

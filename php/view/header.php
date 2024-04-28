@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../css/header.css">
+<link rel="stylesheet" type="text/css" href="../../css/header.css">
 
 <header>
 	<div class="header-container">
@@ -31,15 +31,15 @@
 				<ul id="right-menu">
 					<li>
         				<a href="cart.php">
-            				<img id="cart" src="../element/header_cart.png">
+            				<img id="cart" src="../../element/header_cart.png">
             				<span class="tooltip">前往購物車</span>
             			</a>
         			</li>
         			<li>
-        				<img id="user" src="../element/header_user.png">
+        				<img id="user" src="../../element/header_user.png">
         				<ul>
 							<li><a href="history.php">購買紀錄</a></li>
-							<li><a href="logout.php">　登出　</a></li>
+							<li><a href="../controller/Logout.php">　登出　</a></li>
 						</ul>
 					</li>
 				</ul>

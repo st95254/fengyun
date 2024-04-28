@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const fetchHistoryItems = () => {
-        fetch('../php/get-history.php')
+        fetch('../controller/GetHistory.php')
             .then(response => response.json())
             .then(data => {
                 if (data.error) {

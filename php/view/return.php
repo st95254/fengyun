@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<?php include 'head.php'; ?>
-	<link rel="stylesheet" href="../css/return.css">
+	<link rel="stylesheet" href="../../css/template.css">
 </head>
 <body>
 	<?php include 'header.php'; ?>

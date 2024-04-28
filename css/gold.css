@@ -167,12 +167,17 @@ h3 {
   margin: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .product_lis {
         grid-template-columns: repeat(2, 1fr);
     }
     .all-portfolios{
         grid-template-columns: repeat(3, 1fr);
+    }
+    .single-portfolio img.fixsize {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
     }
 }
 
