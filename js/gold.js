@@ -18,25 +18,19 @@ function GetGoldPrice() {
         success: function (result) {
             console.log(result);
             for(var i = 0; i < result.length; i++) {
-                // 使用result[i].price來獲取價格，因為現在result[i]是一個對象
-                if(result.length === productIds.length) {
-                    for(var i = 0; i < result.length; i++) {
-                        var totalPrice = result[i].price.replace("NT$","");
-                        totalPrice = totalPrice.replace(",","");
-                        var totalPriceNumber = Number(totalPrice) * 1.1;
-                        $("#total" + i).text("NT$" + totalPriceNumber.toFixed(0));
+                var totalPrice = result[i].price.replace("NT$",""); // 使用result[i].price來獲取價格
+                totalPrice = totalPrice.replace(",","");
+                var totalPriceNumber = Number(totalPrice) * 1.1;
+                $("#total" + i).text("NT$" + totalPriceNumber.toFixed(0));
 
-                        if (amount == 100) { // 僅當 amount 等於 100 時更新價格
-                            // 使用從PHP獲取的產品ID
-                            var productId = productIds[i];
-                            var newPrice = totalPriceNumber.toFixed(0);
-                            updateProductPrice(productId, newPrice);
-                        }
-                    }
-                } else {
-                    console.error("Mismatch between product IDs and prices returned.");
+                if (amount == 100) { // 僅當 amount 等於 100 時更新價格
+                    // 使用從PHP獲取的產品ID
+                    var productId = productIds[i];
+                    var newPrice = totalPriceNumber.toFixed(0);
+                    updateProductPrice(productId, newPrice);
                 }
             }
+            
         },
         error: function(xhr, status, error) {
             console.error("Error: " + status + " " + error);
@@ -55,7 +49,7 @@ function updateProductPrice(productId, newPrice) {
             price: newPrice
         },
         success: function(data) {
-            console.log("Price updated for product " + productId + ": " + data);
+            console.log("Price updated for product " + productId);
         },
         error: function(xhr, status, error) {
             console.error("Error updating price: " + status + " " + error);

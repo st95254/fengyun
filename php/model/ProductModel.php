@@ -40,16 +40,33 @@ class ProductModel {
         return $productIds;
     }
 
+    public function shouldUpdatePrice($id, $newPrice) {
+        $currentPriceQuery = "SELECT price FROM product WHERE id = ?";
+        $currentPriceStmt = $this->db->prepare($currentPriceQuery);
+        $currentPriceStmt->bind_param("i", $id);
+        $currentPriceStmt->execute();
+        $result = $currentPriceStmt->get_result();
+        $currentPriceStmt->close();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $currentPrice = $row['price'];
+            return $currentPrice != $newPrice;  // Return true if prices are different
+        }
+        return false;  // No record found or other issues, return false to avoid update
+    }
+
     public function updateProductPrice($id, $newPrice) {
-        $id = $this->db->real_escape_string($id);
-        $newPrice = $this->db->real_escape_string($newPrice);
-        $sql = "UPDATE product SET price = ? WHERE id = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bind_param("si", $newPrice, $id);
-        $stmt->execute();
-        $success = $stmt->affected_rows > 0;
-        $stmt->close();
-        return $success;
+        if ($this->shouldUpdatePrice($id, $newPrice)) {
+            $sql = "UPDATE product SET price = ? WHERE id = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("si", $newPrice, $id);
+            $stmt->execute();
+            $success = $stmt->affected_rows > 0;
+            $stmt->close();
+            return $success;
+        }
+        return false;  // Prices are the same, no update needed
     }
 
     public function getProductById($id) {
