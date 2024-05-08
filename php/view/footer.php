@@ -10,13 +10,12 @@
 		</div>
 		<div class="service">
 			<p>客戶服務</p>
-			<!-- <a href="return.php">退換貨說明</a> -->
+			<a href="return.php">退換貨說明</a>
 			<a href="privacy.php">隱私權政策</a>
 		</div>
 	</div>
 	<div class="footer-right">
 		<div class="logo-footer">
-			<!-- <img id="icon" src="../elements/bulb.png"> -->
 			<a href="home.php">灃耘</a>
 		</div>
 		<div id="copyright">&copy; 2024 灃耘股份有限公司. All rights reserved.</div>
