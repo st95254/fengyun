@@ -39,7 +39,7 @@
         				<img id="user" src="../../element/header_user.png">
         				<ul>
 							<li><a href="history.php">購買紀錄</a></li>
-							<li><a href="../controller/Logout.php">　登出　</a></li>
+							<li><a href="../controller/Logout.php">登　　出</a></li>
 						</ul>
 					</li>
 				</ul>
